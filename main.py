@@ -32,10 +32,14 @@ def process_data():
     total = sum(digraph_index.values())
 
     # This calculates the PERCENTAGE over the COUNT
-    for dig in digraph_index:
-        digraph_index[dig] = digraph_index[dig] / total
+    for let in letter_index:
+        letter_index[let] /= total
 
-    return sorted(digraph_index.items(), key=lambda o: o[1], reverse=True)
+    for dig in digraph_index:
+        digraph_index[dig] /= total
+
+    return sorted(digraph_index.items(), key=lambda o: o[1], reverse=True), \
+        sorted(letter_index.items(), key=lambda o: o[1], reverse=True)
 
 
 if __name__ == '__main__':
