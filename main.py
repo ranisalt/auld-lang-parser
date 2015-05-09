@@ -35,3 +35,10 @@ def process_data():
         digraph_index[dig] = digraph_index[dig] / total
 
     return sorted(digraph_index.items(), key=lambda o: o[1], reverse=True)
+
+
+if __name__ == '__main__':
+    with open('dummy.txt') as raw:
+        pool.map(process_text, raw)
+
+    print(process_data)
