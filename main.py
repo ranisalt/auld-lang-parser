@@ -10,10 +10,10 @@ letter_index = {l : 0 for l in allowed_letters}
 def process_text(text):
     def process_word(word):
         if len(word) > 1:
-            digraphs = tuple(word[x:x + 1] for x in range(len(word) - 1))
+            digraphs = tuple(word[x:x + 2] for x in range(len(word) - 1))
 
             for dig in digraphs:
-                if dig[0] in allowed_letter and dig[1] in allowed_letters:
+                if dig[0] in allowed_letters and dig[1] in allowed_letters:
                     letter_index[dig[0]] += 1
                     digraph_index[dig] = digraph_index[dig] + 1 \
                             if dig in digraph_index else 1
