@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import string
+import sys
 
 allowed_letters = string.ascii_lowercase
 digraph_index = {}
@@ -37,8 +38,9 @@ def process_data():
 
 
 if __name__ == '__main__':
-    with open('dummy.txt') as raw:
-        for line in raw:
-            process_text(line)
+    for arg in sys.argv[1:]:
+        with open(arg) as raw:
+            for line in raw:
+                process_text(line)
 
     print(process_data())
