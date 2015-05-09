@@ -1,12 +1,10 @@
 #!/usr/bin/env python
 
 import string
-from multiprocessing import Pool
 
 allowed_letters = string.ascii_lowercase
 digraph_index = {}
 letter_index = {l : 0 for l in allowed_letters}
-pool = Pool()
 
 
 def process_text(text):
@@ -24,7 +22,8 @@ def process_text(text):
         if word[-1] in allowed_letters:
             letter_index[word[-1]] += 1
 
-    pool.map(process_word, text.lower().split())
+    for word in text.lower().split():
+        process_word(word)
 
 
 def process_data():
@@ -39,6 +38,7 @@ def process_data():
 
 if __name__ == '__main__':
     with open('dummy.txt') as raw:
-        pool.map(process_text, raw)
+        for line in raw:
+            process_text(line)
 
-    print(process_data)
+    print(process_data())
