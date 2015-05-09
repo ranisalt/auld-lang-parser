@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 
+import pprint
 import string
 import sys
 
@@ -43,4 +44,4 @@ if __name__ == '__main__':
             for line in raw:
                 process_text(line)
 
-    print(process_data())
+    pprint.pprint(process_data())
